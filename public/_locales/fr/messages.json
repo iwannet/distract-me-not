@@ -320,6 +320,9 @@
   "autoReblockOnTimeout": {
     "message": "Rebloquer automatiquement les sites web débloqués une fois le temps écoulé"
   },
+  "allowUnblockForWhile": {
+    "message": "Autoriser le déblocage pour x minute(s)"
+  },
   "timeOverFor": {
     "message": "Temps écoulé pour $url$",
     "placeholders": {

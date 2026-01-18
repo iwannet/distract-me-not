@@ -52,13 +52,16 @@ export class Blocked extends Component {
     };
   }
 
-  getUnblockOptions = (time) => {
-    return [
+  getUnblockOptions = (time, allowUnblockForWhile = true) => {
+    const options = [
       {
         label: translate('unblockOnce'),
         value: UnblockOptions.unblockOnce,
       },
-      {
+    ];
+    
+    if (allowUnblockForWhile) {
+      options.push({
         label: (
           <Pane display="flex" alignItems="center" gap={10}>
             <span>{translate('unblockFor')}</span>
@@ -78,8 +81,10 @@ export class Blocked extends Component {
           </Pane>
         ),
         value: UnblockOptions.unblockForWhile,
-      },
-    ];
+      });
+    }
+    
+    return options;
   };
 
   componentDidMount() {
@@ -101,6 +106,7 @@ export class Blocked extends Component {
         unblock: {
           isEnabled: isDevEnv || defaultUnblockSettings.isEnabled,
           requirePassword: defaultUnblockSettings.requirePassword,
+          allowUnblockForWhile: defaultUnblockSettings.allowUnblockForWhile,
         },
         password: {
           isEnabled: false,
@@ -115,6 +121,10 @@ export class Blocked extends Component {
             hasUnblockButton: items.unblock.isEnabled,
             unblockDialog: {
               ...this.state.unblockDialog,
+              options: this.getUnblockOptions(
+                this.state.unblockDialog.time,
+                items.unblock.allowUnblockForWhile
+              ),
               requirePassword:
                 items.unblock.isEnabled &&
                 items.unblock.requirePassword &&

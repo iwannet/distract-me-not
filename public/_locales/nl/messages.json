@@ -320,6 +320,9 @@
   "autoReblockOnTimeout": {
     "message": "Niet-geblokkeerde websites automatisch blokkeren zodra de tijd is verstreken"
   },
+  "allowUnblockForWhile": {
+    "message": "Deblokkeren gedurende x minuut(en) toestaan"
+  },
   "timeOverFor": {
     "message": "Het tijdschema van $url$ is verstreken",
     "placeholders": {

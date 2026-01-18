@@ -78,6 +78,7 @@ export const defaultUnblockSettings = {
   unblockOnceTimeout: 10, // seconds
   displayNotificationOnTimeout: true,
   autoReblockOnTimeout: false,
+  allowUnblockForWhile: true,
 };
 
 export const defaultPasswordSettings = {

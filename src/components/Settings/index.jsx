@@ -616,6 +616,15 @@ export class Settings extends Component {
         disabled={!this.state.options.unblock.isEnabled}
         margin={0}
       />
+      <Checkbox
+        label={translate('allowUnblockForWhile')}
+        checked={this.state.options.unblock.allowUnblockForWhile}
+        onChange={(event) =>
+          this.setOptions('unblock.allowUnblockForWhile', event.target.checked)
+        }
+        disabled={!this.state.options.unblock.isEnabled}
+        margin={0}
+      />
     </Fragment>
   );
 
